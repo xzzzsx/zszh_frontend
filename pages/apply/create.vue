@@ -143,13 +143,39 @@
 				this.formData.region = this.regionOptions[this.regionIndex];
 			},
 			uploadFile(file) {
-				uni.chooseImage({
-					count: 1,
-					success: (res) => {
-						file.uploaded = true;
-						uni.showToast({ title: '上传成功', icon: 'success' });
+				if (file.name === '营业执照') {
+					uni.navigateTo({
+						url: '/pages/apply/upload?title=' + file.name
+					});
+				} else if (file.name === '法人身份证') {
+					uni.navigateTo({
+						url: '/pages/apply/upload-idcard'
+					});
+				} else {
+					uni.chooseImage({
+						count: 1,
+						success: (res) => {
+							file.uploaded = true;
+							uni.showToast({ title: '上传成功', icon: 'success' });
+						}
+					});
+				}
+			},
+			handleUploadSuccess(title, data) {
+				// 查找对应的文件项并标记为已上传
+				const file = this.fileList.find(item => item.name === title);
+				if (file) {
+					file.uploaded = true;
+					// 如果是身份证，data 是一个包含正反面和信息的对象
+					if (title === '法人身份证') {
+						console.log('身份证上传成功:', data);
+						// 这里可以将身份证信息保存到 formData 中
+						// this.formData.idCardInfo = data;
+					} else {
+						// 普通文件，data 是 filePath
+						// file.path = data;
 					}
-				});
+				}
 			},
 			onCancel() {
 				uni.navigateBack();

@@ -41,6 +41,24 @@
 			"style": {
 				"navigationBarTitleText": "项目详情"
 			}
+		},
+		{
+			"path": "pages/apply/upload",
+			"style": {
+				"navigationBarTitleText": "上传文件"
+			}
+		},
+		{
+			"path": "pages/apply/upload-idcard",
+			"style": {
+				"navigationBarTitleText": "上传身份证"
+			}
+		},
+		{
+			"path": "pages/apply/refund",
+			"style": {
+				"navigationBarTitleText": "申请保证金"
+			}
 		}
 	],
 	"globalStyle": {
@@ -51,21 +69,27 @@
 	},
 	"tabBar": {
 		"color": "#7A7E83",
-		"selectedColor": "#007AFF",
+		"selectedColor": "#C8A068",
 		"borderStyle": "black",
 		"backgroundColor": "#FFFFFF",
 		"list": [
 			{
 				"pagePath": "pages/index/index",
-				"text": "首页"
+				"text": "首页",
+				"iconPath": "static/shouye.png",
+				"selectedIconPath": "static/shouye.png"
 			},
 			{
 				"pagePath": "pages/apply/apply",
-				"text": "申请保证金"
+				"text": "申请保证金",
+				"iconPath": "static/shenqingbaozhengjin.png",
+				"selectedIconPath": "static/shenqingbaozhengjin.png"
 			},
 			{
 				"pagePath": "pages/mine/mine",
-				"text": "我的保证金"
+				"text": "我的保证金",
+				"iconPath": "static/wodebaozhengjin.png",
+				"selectedIconPath": "static/wodebaozhengjin.png"
 			}
 		]
 	},

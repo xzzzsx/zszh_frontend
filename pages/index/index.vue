@@ -28,7 +28,7 @@
 				<text class="section-title">快捷操作</text>
 			</view>
 			<view class="grid-container">
-				<view class="grid-item" v-for="(item, index) in quickActions" :key="index">
+				<view class="grid-item" v-for="(item, index) in quickActions" :key="index" @click="handleGridClick(item)">
 					<view class="icon-box">
 						<!-- 这里后续可以替换为 <image src="..." /> -->
 						<view class="placeholder-icon">📄</view>
@@ -54,7 +54,35 @@
 			}
 		},
 		methods: {
-
+			handleGridClick(item) {
+				let tabIndex = 0;
+				switch (item.name) {
+					case '申请存储通知书':
+						tabIndex = 0;
+						break;
+					case '申请保函':
+						tabIndex = 1;
+						break;
+					case '续开保函':
+						tabIndex = 2;
+						break;
+					case '上传凭证':
+						tabIndex = 3;
+						break;
+					case '申请返还':
+						tabIndex = 4;
+						break;
+					default:
+						return;
+				}
+				
+				// 存入目标 Tab 索引
+				uni.setStorageSync('applyTargetTab', tabIndex);
+				// 切换到申请保证金页面 (TabBar页面必须用 switchTab)
+				uni.switchTab({
+					url: '/pages/apply/apply'
+				});
+			}
 		}
 	}
 </script>

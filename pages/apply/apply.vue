@@ -73,7 +73,7 @@
 			return {
 				keyword: '',
 				currentTab: 0,
-				tabs: ['申请存储通知书', '申请保函', '续开保函', '上传现金凭证'],
+				tabs: ['申请存储通知书', '申请保函', '续开保函', '上传现金凭证', '申请返还'],
 				// Tab 0: 申请存储通知书
 				list0: [
 					{
@@ -187,6 +187,36 @@
 						actionText: '上传凭证',
 						actionClass: 'btn-primary'
 					}
+				],
+				// Tab 4: 申请返还
+				list4: [
+					{
+						type: '',
+						titleColor: '',
+						projectName: '卧龙山至太平湾南段路面改造工程项目',
+						institution: '大家财产保险有限责任公司',
+						amount: '2,000,000.00',
+						actionText: '申请返还',
+						actionClass: 'btn-primary'
+					},
+					{
+						type: '',
+						titleColor: '',
+						projectName: '甘井子区丹东线棋盘子桥改建工程',
+						institution: '中国人寿财产保险股份有限公司',
+						amount: '660,000.00',
+						actionText: '申请返还',
+						actionClass: 'btn-primary'
+					},
+					{
+						type: '',
+						titleColor: '',
+						projectName: '丹东市妇幼保健计划生育服务中心1号门诊',
+						institution: '永诚财产保险股份有限公司',
+						amount: '1,000,000.00',
+						actionText: '申请返还',
+						actionClass: 'btn-primary'
+					}
 				]
 			}
 		},
@@ -194,10 +224,18 @@
 			uni.setNavigationBarTitle({
 				title: '申请保证金'
 			});
+			
+			// 检查是否有跳转目标 Tab
+			const targetTab = uni.getStorageSync('applyTargetTab');
+			if (targetTab !== '' && targetTab !== undefined && targetTab !== null) {
+				this.currentTab = Number(targetTab);
+				// 清除 storage，防止下次进来还是跳到这个 tab
+				uni.removeStorageSync('applyTargetTab');
+			}
 		},
 		computed: {
 			currentList() {
-				const lists = [this.list0, this.list1, this.list2, this.list3];
+				const lists = [this.list0, this.list1, this.list2, this.list3, this.list4];
 				return lists[this.currentTab] || [];
 			}
 		},
@@ -214,6 +252,10 @@
 					uni.navigateTo({ url: '/pages/apply/form?id=' + (item.id || 0) });
 				} else if (item.actionText === '上传凭证') {
 					uni.showToast({ title: '上传凭证', icon: 'none' });
+				} else if (item.actionText === '申请返还') {
+					uni.navigateTo({
+						url: '/pages/apply/refund'
+					});
 				}
 			},
 			goToCreate() {
