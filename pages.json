@@ -1,0 +1,73 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/apply/apply",
+			"style": {
+				"navigationBarTitleText": "申请保证金"
+			}
+		},
+		{
+			"path": "pages/apply/detail",
+			"style": {
+				"navigationBarTitleText": "项目详情"
+			}
+		},
+		{
+			"path": "pages/apply/form",
+			"style": {
+				"navigationBarTitleText": "申请保证金"
+			}
+		},
+		{
+			"path": "pages/apply/create",
+			"style": {
+				"navigationBarTitleText": "申请保证金"
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的保证金"
+			}
+		},
+		{
+			"path": "pages/mine/detail",
+			"style": {
+				"navigationBarTitleText": "项目详情"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "zszh_app",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007AFF",
+		"borderStyle": "black",
+		"backgroundColor": "#FFFFFF",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/apply/apply",
+				"text": "申请保证金"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"text": "我的保证金"
+			}
+		]
+	},
+	"uniIdRouter": {}
+}
